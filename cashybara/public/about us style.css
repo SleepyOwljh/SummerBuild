@@ -1,0 +1,198 @@
+/* ===================================================
+   Capybara Style – About Us Page (Updated)
+   Author: ChatGPT (OpenAI o3)
+   ===================================================*/
+
+/* 1. Google Fonts --------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varsity+Team&display=swap');
+
+/* 2. Design Tokens -------------------------------------------------------- */
+:root {
+  --capy-brown: #8d7155;   /* warm capybara brown */
+  --capy-cream: #f8f5f0;   /* light cream background */
+  --capy-green: #99c68e;   /* leafy green accent */
+  --capy-blue:  #a3dce9;   /* calm water blue */
+  --text-dark:  #333;
+  --radius-lg:  20px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.1);
+  --shadow-lg: 0 16px 32px rgba(0,0,0,.15);
+}
+
+/* 3. Reset & Base --------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  background: var(--capy-cream);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; height: auto; }
+a { text-decoration: none; color: inherit; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+/* 4. Header --------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-header .logo {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem; /* enlarged logo */
+  color: var(--capy-brown);
+}
+.site-nav a {
+  margin: 0 2rem;        /* reduced spacing */
+  font-size: 1.5rem;     /* larger nav links */
+  font-weight: 600;
+  color: var(--capy-brown);
+  transition: color .3s;
+}
+.site-nav a:hover {
+  color: var(--capy-green);
+}
+
+/* 5. Hero ---------------------------------------------------------------- */
+.hero-header {
+  width: 100%;            /* full width for true centering */
+  margin: 0 auto;
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  background:
+    linear-gradient(180deg, rgba(163,220,233,.6) 0%, rgba(255,255,255,.9) 100%),
+    url('asset/capybara-bg.png') center/cover no-repeat fixed;
+}
+.hero-title {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--capy-brown);
+  font-size: clamp(5rem, 12vw, 10rem); /* even Bigger */
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 0 #fff;
+}
+.hero-subtitle {
+  max-width: 700px;
+  font-size: 1.2rem;
+  background: rgba(255,255,255,.8);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 6. About Image --------------------------------------------------------- */
+.about-hero {
+  width: 100vw;
+  height: 120vh;          /* mobile & tablet default */
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* default behaviour */
+}
+
+/* 1. Taller hero on laptop and up */
+@media (min-width: 768px) {
+  .about-hero { height: 150vh; }
+}
+
+/* 3. Show the whole picture on ultra-wide screens */
+@media (min-width: 1400px) {
+  .about-img { object-fit: contain; }
+}
+
+/* 7. Team Section -------------------------------------------------------- */
+.team { padding: 6rem 1rem; }
+.team h2 {
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(4rem, 8vw, 6rem);
+  color: var(--capy-brown);
+  margin-bottom: 3rem;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+.team-card {
+  background: var(--capy-blue);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s, box-shadow .3s;
+  transform-origin: center bottom;
+}
+.team-card:hover {
+  transform: translateY(-8px) rotate(-2deg);
+  box-shadow: var(--shadow-lg);
+}
+.team-card img {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--capy-green);
+}
+.team-card h3 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  color: var(--capy-brown);
+  margin-bottom: .5rem;
+}
+.team-card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.team-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--capy-brown);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background .3s, color .3s;
+}
+.team-social a:hover {
+  background: var(--capy-brown);
+  color: var(--capy-cream);
+}
+
+/* 8. Footer -------------------------------------------------------------- */
+.site-footer {
+  background: var(--capy-brown);
+  color: var(--capy-cream);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: .9rem;
+}
+
+/* 9. Media Queries ------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
