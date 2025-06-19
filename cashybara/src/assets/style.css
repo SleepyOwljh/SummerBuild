@@ -2,8 +2,9 @@ body, html {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-family: sans-serif;
-    background-color: #1e1e1e;
+    font-family: cursive;
+    background: linear-gradient(to bottom, #f1d66df0, #d1b76171, #907c54);
+    font-size: 1.5rem;
 }
 
 .app-container {
@@ -38,6 +39,7 @@ body, html {
     cursor: pointer;
     z-index: 10;
     transition: background-color 0.3s ease;
+    font-family: cursive;
 }
 
 .start-button:hover {
