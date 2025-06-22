@@ -118,3 +118,20 @@ footer a {
 footer.visible {
     display: block;
 }
+
+.learn-more {
+    margin-top: 1.5rem;
+    padding: 10px 20px;
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
