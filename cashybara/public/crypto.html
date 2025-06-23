@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudentCrypto - Real-Time Crypto Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@^3/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-coins"></i> WHY CRYPTOCURRENCY? </h1>
+            <p>Student-friendly crypto tracker with real-time data from CoinGecko</p>
+            <div class="header-controls">
+                <button class="refresh-btn" id="refreshBtn">
+                    <i class="fas fa-sync-alt"></i> Refresh Data
+                </button>
+                <div class="api-status">
+                    <div class="status-indicator"></div>
+                    <span>CoinGecko API Connected</span>
+                </div>
+            </div>
+            <div class="api-key-info">
+                Using CoinGecko API - No API key required | Real-time crypto data
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="chart-section">
+                <h2>Price Chart</h2>
+                <div class="chart-controls">
+                    <div class="timeframe-buttons">
+                        <button class="timeframe-btn active" data-timeframe="1">24H</button>
+                        <button class="timeframe-btn" data-timeframe="7">7D</button>
+                        <button class="timeframe-btn" data-timeframe="30">30D</button>
+                        <button class="timeframe-btn" data-timeframe="90">90D</button>
+                        <button class="timeframe-btn" data-timeframe="365">1Y</button>
+                    </div>
+                    <button class="clear-btn" onclick="clearAllCryptos()">
+                        <i class="fas fa-trash-alt"></i> Clear All
+                    </button>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="cryptoChart"></canvas>
+                </div>
+
+                <div id="cryptoInfo" class="etf-info" hidden>
+                    <h4 id="infoTitle"></h4>
+                    <table id="infoTable"></table>
+                    <p id="infoDesc"></p>
+                </div>
+
+                <div class="selected-etfs" id="selectedCryptos">
+                    <div class="etf-placeholder">Select Cryptos to compare</div>
+                    <!-- Selected ETF tags will be appended here as .etf-tag -->
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h2>Popular Cyrptocurrencies</h2>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-box" placeholder="Search crypto..." id="searchBox" autocomplete="off" />
+                    <ul id="searchResults" class="search-results" hidden></ul>
+                </div>
+
+                <div class="etf-grid" id="cryptoGrid">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading real-time crypto data from CoinGecko...</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="risk-appetite">
+                <h2>We believe you should know the risk you're taking on</h2>
+                <p class="risk-appetite__intro"></p>
+                <label for="riskRange" class="risk-appetite__label">
+                    Risk Level: <strong id="riskLabel">Moderate</strong>
+                </label>
+                <input type="range" id="riskRange" class="risk-appetite__slider" min="0" max="100" step="1" value="50" />
+                <div class="risk-appetite__ticks">
+                    <span class="tick">Very conservative</span>
+                    <span class="tick">Very aggressive</span>
+                </div>
+                <p id="riskDesc" class="risk-appetite__description">
+                    There's a 99% chance that your portfolio won't lose more than 19% in a given year.
+                </p>
+            </section>
+
+            <section id="investmentSection">
+                <h2>How much do you have to invest?</h2>
+                <input type="range" id="investRange" min="0" max="50000" step="100" />
+                <div>
+                    You plan to invest: <strong>$<span id="investAmount">0</span></strong>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p>StudentCrypto Dashboard &copy; 2025 | Real-time data provided by CoinGecko | SummerBuild Use Only</p>
+        </div>
+    </div>
+
+    <script src="crypto.js" defer></script>
+</body>
+</html>
