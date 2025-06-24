@@ -1,139 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentETF - Real-Time Investment Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CasHyBara – Student ETF Dashboard</title>
 
+<<<<<<< Updated upstream
     <!-- CSS -->
     <link rel="stylesheet" href="dashboard.css" />
+=======
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+>>>>>>> Stashed changes
 
-    <!-- Chart.js + time adapter (needed for time scale) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@^3/build/global/luxon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="Etf style.css" />
 
+  <!-- Chart.js + Luxon adapter -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@^3/build/global/luxon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@^1"></script>
+  <!-- FontAwesome (optional) -->
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="container">
-        <header class="header">
-            <h1><i class="fas fa-chart-line"></i> WHY ETFs? </h1>
-            <p>Smart ETF Investments Tailored for University Students - Real-time data powered by Yahoo Finance</p>
-            
-            <div class="header-controls">
-                <button class="refresh-btn" id="refreshBtn">
-                    <i class="fas fa-sync-alt"></i> Refresh Data
-                </button>
-                <div class="api-status">
-                    <div class="status-indicator"></div>
-                    <span>Yahoo Finance API Connected</span>
-                </div>
-            </div>
-            
-            <div class="api-key-info">
-                Using Yahoo Finance API - No API key required | Real-time ETF data
-            </div>
-        </header>
+  <div class="container">
 
-        <div class="main-content">
-            <div class="chart-section">
-                <h1>Price Chart</h1>
-                <div class="chart-controls">
-                    <div class="timeframe-buttons">
-                        <button class="timeframe-btn active" data-timeframe="1d">1 Day</button>
-                        <button class="timeframe-btn" data-timeframe="5d">5 Days</button>
-                        <button class="timeframe-btn" data-timeframe="1mo">1 Month</button>
-                        <button class="timeframe-btn" data-timeframe="6mo">6 Months</button>
-                        <button class="timeframe-btn" data-timeframe="1y">1 Year</button>
-                    </div>
-                    <button class="clear-btn" onclick="clearAllETFs()">
-                        <i class="fas fa-trash-alt"></i> Clear All
-                    </button>
-                </div>
-                
-                <div class="chart-container">
-                    <canvas id="etfChart"></canvas>
-                </div>
-                <!-- 🆕 metrics panel -->
-                <div id="etfInfo" class="etf-info" hidden>
-                    <h4 id="infoTitle"></h4>
-                    <table id="infoTable"></table>
-                    <p id="infoDesc"></p>
-                </div>
-                <div class="selected-etfs" id="selectedETFs">
-                    <div class="etf-tag">Select ETFs to compare</div>
-                </div>
-            </div>
-
-        <div class="sidebar">
-            <h2>Popular Student ETFs</h2>
-            <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input
-                type="text"
-                class="search-box"
-                placeholder="Search ETFs..."
-                id="searchBox"
-                autocomplete="off">
-
-                <!-- 🔽 new suggestion list -->
-                <ul id="searchResults" class="search-results" hidden></ul>
-            </div>
-            
-            <div class="etf-grid" id="etfGrid">
-                <div class="loading">
-                    <div class="loading-spinner"></div>
-                    <p>Loading real-time ETF data from Yahoo Finance...</p>
-                </div>
-            </div>
+    <!-- HEADER -->
+    <header class="header">
+      <h1>CasHyBara</h1>
+      <p>Smart ETF Investments Tailored for University Students – Real-time data powered by Yahoo Finance</p>
+      <div class="header-controls">
+        <button id="refreshBtn" class="refresh-btn">
+          <i class="fas fa-sync-alt"></i> Refresh Data
+        </button>
+        <div class="api-status">
+          <div class="status-indicator"></div>
+          <span>Yahoo Finance API Connected</span>
         </div>
+      </div>
+      <div class="api-key-info">
+        Using Yahoo Finance API – No API key required | Real-time ETF data
+      </div>
+    </header>
 
-        <section class="risk-appetite">
-            <h2>We believe you should know the risk you’re taking on</h2>
-            <p class="risk-appetite__intro">
-                
-            </p>
-
-            <label for="riskRange" class="risk-appetite__label">
-                Risk Level: <strong id="riskLabel">Moderate</strong>
-            </label>
-
-            <input
-                type="range"
-                id="riskRange"
-                class="risk-appetite__slider"
-                min="0"
-                max="100"
-                step="1"
-                value="50"
-            />
-
-            <div class="risk-appetite__ticks">
-                <span class="tick">Very conservative</span>
-                <span class="tick">Very aggressive</span>
-            </div>
-
-            <p id="riskDesc" class="risk-appetite__description">
-                There’s a 99% chance that your portfolio won’t lose more than 19% in a given year.
-            </p>
-        </section>
-
-        <section id="investmentSection">
-            <h2>How much do you have to invest?</h2>
-            <input type="range" id="investRange" min="0" max="50000" step="100">
-            <div>
-                You plan to invest: <strong>$<span id="investAmount">0</span></strong>
-            </div>
-        </section>
-
-
-        
-        <div class="footer">
-            <p>StudentETF Dashboard &copy; 2025 | Real-time data provided by Yahoo Finance | SummerBuild Use Only</p>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <!-- PRICE CHART -->
+      <section class="chart-section">
+        <h2>Price Chart</h2>
+        <div class="chart-controls">
+          <div class="timeframe-buttons">
+            <button class="timeframe-btn active" data-timeframe="1d">1 Day</button>
+            <button class="timeframe-btn" data-timeframe="5d">5 Days</button>
+            <button class="timeframe-btn" data-timeframe="1mo">1 Month</button>
+            <button class="timeframe-btn" data-timeframe="6mo">6 Months</button>
+            <button class="timeframe-btn" data-timeframe="1y">1 Year</button>
+          </div>
+          <button class="clear-btn" onclick="clearAllETFs()">Clear All</button>
         </div>
+        <div class="chart-container">
+          <canvas id="etfChart"></canvas>
+        </div>
+        <div id="etfInfo" class="etf-info" hidden>
+          <h4 id="infoTitle"></h4>
+          <table id="infoTable"></table>
+        </div>
+        <div id="selectedETFs" class="selected-etfs">
+          <div class="etf-tag">Select ETFs to compare</div>
+        </div>
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <h3>Popular Student ETFs</h3>
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input id="searchBox" class="search-box" type="text" placeholder="Search ETFs…" autocomplete="off" />
+          <ul id="searchResults" class="search-results" hidden></ul>
+        </div>
+        <div id="etfGrid" class="etf-grid">
+          <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading real-time ETF data…</p>
+          </div>
+        </div>
+      </aside>
     </div>
+<<<<<<< Updated upstream
     <script src="Etf script.js" defer></script>
     
+=======
+
+    <!-- RISK APPETITE -->
+    <section class="risk-appetite chart-section">
+      <h2>Risk Profile</h2>
+      <label for="riskRange">Risk Level: <strong id="riskLabel">Moderate</strong></label>
+      <input id="riskRange" type="range" min="0" max="100" step="1" value="50" />
+      <div class="ticks">
+        <span>Very conservative</span>
+        <span>Very aggressive</span>
+      </div>
+      <p id="riskDesc">There’s a 99% chance that your portfolio won’t lose more than 19% in a given year.</p>
+    </section>
+
+    <!-- COMPARE STRATEGIES -->
+    <section id="compareStrategiesSection" class="chart-section">
+      <h2>Compare Strategies</h2>
+
+      <!-- Select ETF -->
+      <label for="compareETFSelect">Select ETF:</label>
+      <select id="compareETFSelect">
+        <option value="">-- Choose ETF --</option>
+      </select>
+
+      <!-- Investment Slider -->
+      <label for="compareInvestAmt">How much do you have to invest? <strong><span id="compareInvestDisplay">$25,000</span></strong></label>
+      <input id="compareInvestAmt" type="range" min="1000" max="100000" step="1000" value="25000" />
+
+      <!-- Params -->
+      <div class="params">
+        <div id="maParamsCompare" class="param-block">
+          <label>Fast MA: <input id="maFastCompare" type="number" value="20" min="1" /></label>
+          <label>Slow MA: <input id="maSlowCompare" type="number" value="60" min="1" /></label>
+        </div>
+        <div id="rsiParamsCompare" class="param-block">
+          <label>Lookback: <input id="rsiLBCompare" type="number" value="14" min="1" /></label>
+          <label>Low: <input id="rsiLowCompare" type="number" value="30" min="1" max="100" /></label>
+          <label>High: <input id="rsiHighCompare" type="number" value="70" min="1" max="100" /></label>
+        </div>
+      </div>
+
+      <!-- Run -->
+      <button id="runComparison" class="btn">Run Comparison</button>
+
+      <!-- P&L Chart -->
+      <div class="chart-container">
+        <canvas id="plComparisonChart"></canvas>
+      </div>
+
+      <!-- Drill-down -->
+      <label for="drillStrategySelect">Drill into:</label>
+      <select id="drillStrategySelect">
+        <option value="bh">Buy & Hold</option>
+        <option value="ma">MA</option>
+        <option value="rsi">RSI</option>
+      </select>
+
+      <!-- Metrics -->
+      <div class="metrics">
+        <div class="metric"><h4>Total Return</h4><p id="drillTotalReturn">—</p></div>
+        <div class="metric"><h4>Sharpe Ratio</h4><p id="drillSharpe">—</p></div>
+        <div class="metric"><h4>Max Drawdown</h4><p id="drillMaxDD">—</p></div>
+        <div class="metric"><h4>Profit / Loss</h4><p id="drillPL">—</p></div>
+      </div>
+
+      <!-- Signals & Positions -->
+      <button id="showDrillDetails" class="btn" hidden>Show Signals & Positions</button>
+      <div id="drillDetails" hidden>
+        <h3>Signal Chart</h3>
+        <canvas id="drillSignalChart"></canvas>
+        <h3>Position Chart</h3>
+        <canvas id="drillPositionChart"></canvas>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>CasHyBara Dashboard © 2025 | Real-time data by Yahoo Finance</p>
+    </footer>
+  </div>
+
+  <script src="Etf script.js" defer></script>
+>>>>>>> Stashed changes
 </body>
 </html>

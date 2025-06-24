@@ -1,0 +1,19 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Helvetica, sans-serif; background: #f6f4ef; color: #3a3a3a; }
+.container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; display: grid; gap: 2rem; }
+.card { background: #fff; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+.header { text-align: center; margin-bottom: 1rem; }
+.header h1 { font-size: 2rem; color: #7b5e57; }
+.header p { color: #a39388; }
+#search-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+#search-input { flex: 1; padding: 0.75rem 1rem; border: 2px solid #d8cfc4; border-radius: 0.5rem; }
+.filters select { padding: 0.5rem; border: 1px solid #d8cfc4; border-radius: 0.5rem; }
+#results-list ul { list-style: none; }
+#results-list li { padding: 0.5rem 0; border-bottom: 1px solid #eee; color: #3a3a3a; }
+canvas { width: 100%; height: 300px; margin-top: 1rem; }
+.sim-inputs { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+.sim-inputs label { font-size: 0.9rem; }
+.sim-inputs input { width: 5rem; padding: 0.25rem; border: 1px solid #d8cfc4; border-radius: 0.25rem; }
+#run-sim { padding: 0.5rem 1rem; background: #7b5e57; color: #fff; border: none; border-radius: 0.5rem; cursor: pointer; transition: transform 0.2s; }
+#run-sim:hover { transform: scale(1.05); }

@@ -1,0 +1,284 @@
+/* -----------------------------------------------------------------------------
+   Capybara Theme for CasHyBara
+   -----------------------------------------------------------------------------
+   Earthy browns & tans, leafy green accent, playful header font.
+----------------------------------------------------------------------------- */
+
+/* — Theme Variables — */
+:root {
+  --capy-bg-light:   #FFF9F3;   /* pale cream */
+  --capy-bg-dark:    #A67B5B;   /* warm brown */
+  --capy-tan:        #D2B48C;   /* tan */
+  --capy-accent:     #8BAE36;   /* leafy green */
+  --capy-text-dark:  #332E2E;   /* dark cocoa */
+  --capy-text-light: #FFFFFF;   /* white */
+  --capy-shadow:     rgba(51, 46, 46, 0.1);
+}
+
+/* — Base & Reset — */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: linear-gradient(135deg, var(--capy-bg-light), var(--capy-tan));
+  color: var(--capy-text-dark);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* — Header — */
+.header {
+  background: var(--capy-bg-dark);
+  color: var(--capy-text-light);
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--capy-shadow);
+}
+.header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  margin-bottom: 0.25rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.header p {
+  font-weight: 300;
+  opacity: 0.85;
+}
+.header-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.refresh-btn {
+  background: var(--capy-accent);
+  color: var(--capy-text-light);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.refresh-btn:hover {
+  background: darken(var(--capy-accent), 10%);
+}
+.api-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.status-indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #4caf50;
+  border-radius: 50%;
+}
+.api-key-info {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* — Chart “Cards” — */
+.chart-section {
+  background: var(--capy-text-light);
+  color: var(--capy-text-dark);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px var(--capy-shadow);
+}
+.chart-section h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin-bottom: 1rem;
+}
+
+/* — Timeframe Buttons — */
+.timeframe-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+.timeframe-btn {
+  background: #eee;
+  color: var(--capy-text-dark);
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.timeframe-btn.active,
+.timeframe-btn:hover {
+  background: var(--capy-accent);
+  color: var(--capy-text-light);
+}
+
+/* — Clear Button — */
+.clear-btn {
+  background: #f28b82;
+  color: var(--capy-text-light);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.clear-btn:hover {
+  background: #e06666;
+}
+
+/* — Sidebar — */
+.sidebar {
+  background: var(--capy-text-light);
+  color: var(--capy-text-dark);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 12px var(--capy-shadow);
+}
+.sidebar h3 {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--capy-accent);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+.search-container { position: relative; margin-bottom: 1rem; }
+.search-box {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.search-results {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: var(--capy-text-light);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+.etf-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+.etf-card {
+  background: #f0e1d8;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.etf-card:hover {
+  transform: translateY(-3px);
+}
+.etf-card.selected {
+  border: 2px solid var(--capy-accent);
+}
+
+/* — Risk Slider — */
+.risk-appetite input[type=range] {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* — Compare Section Inputs — */
+#compareStrategiesSection label,
+#compareStrategiesSection select,
+#compareStrategiesSection input {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+#compareStrategiesSection select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* — Param Blocks — */
+.params {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+.param-block label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.param-block input {
+  width: 4rem;
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* — Buttons — */
+.btn {
+  background: var(--capy-accent);
+  color: var(--capy-text-light);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: darken(var(--capy-accent), 10%);
+}
+
+/* — Metrics Grid — */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.metric {
+  background: #f5f0e8;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+.metric h4 {
+  margin-bottom: 0.5rem;
+  color: var(--capy-bg-dark);
+}
+
+/* — Signal/Position Charts — */
+#drillSignalChart, #drillPositionChart {
+  margin-top: 1rem;
+}
+
+/* — Footer — */
+.footer {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
