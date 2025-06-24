@@ -17,7 +17,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #fff7ae, #fcd34d, #fbbf24);
+  background: linear-gradient(135deg, #f1d66df0, #d1b76171, #907c54);
   min-height: 100vh;
   color: var(--text-color);
   padding: 20px;
@@ -383,7 +383,7 @@ section h2::after,
 }
 
 .etf-card {
-  background: linear-gradient(145deg, #f3f5f9, #e8ebf3);
+  background: linear-gradient(145deg, #f1d66df0, #d1b76171, #907c54);
   border-radius: 12px;
   padding: 16px 20px;
   position: relative;
@@ -392,17 +392,6 @@ section h2::after,
   flex-direction: column;
   gap: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.etf-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5px;
-  height: 100%;
-  background: linear-gradient(to bottom, #667eea, #764ba2);
-  border-radius: 5px 0 0 5px;
 }
 
 .etf-card.selected {
