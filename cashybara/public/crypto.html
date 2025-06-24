@@ -15,18 +15,18 @@
     <div class="container">
         <header class="header">
             <h1><i class="fas fa-coins"></i> WHY CRYPTOCURRENCY? </h1>
-            <p>Student-friendly crypto tracker with real-time data from CoinGecko</p>
+            <p>Student-friendly crypto tracker with real-time data from Binance</p>
             <div class="header-controls">
                 <button class="refresh-btn" id="refreshBtn">
                     <i class="fas fa-sync-alt"></i> Refresh Data
                 </button>
                 <div class="api-status">
                     <div class="status-indicator"></div>
-                    <span>CoinGecko API Connected</span>
+                    <span>Binance API Connected</span>
                 </div>
             </div>
             <div class="api-key-info">
-                Using CoinGecko API - No API key required | Real-time crypto data
+                Using Binance API - No API key required | Real-time crypto data
             </div>
         </header>
 
@@ -35,11 +35,11 @@
                 <h2>Price Chart</h2>
                 <div class="chart-controls">
                     <div class="timeframe-buttons">
-                        <button class="timeframe-btn active" data-timeframe="1">24H</button>
-                        <button class="timeframe-btn" data-timeframe="7">7D</button>
-                        <button class="timeframe-btn" data-timeframe="30">30D</button>
-                        <button class="timeframe-btn" data-timeframe="90">90D</button>
-                        <button class="timeframe-btn" data-timeframe="365">1Y</button>
+                        <button class="timeframe-btn active" data-timeframe="1d">1 Day</button>
+                        <button class="timeframe-btn" data-timeframe="7d">7 Days</button>
+                        <button class="timeframe-btn" data-timeframe="30D">1 Month</button>
+                        <button class="timeframe-btn" data-timeframe="90D">3 Months</button>
+                        <button class="timeframe-btn" data-timeframe="1y">1 Year</button>
                     </div>
                     <button class="clear-btn" onclick="clearAllCryptos()">
                         <i class="fas fa-trash-alt"></i> Clear All
@@ -104,7 +104,7 @@
         </div>
 
         <div class="footer">
-            <p>StudentCrypto Dashboard &copy; 2025 | Real-time data provided by CoinGecko | SummerBuild Use Only</p>
+            <p>StudentCrypto Dashboard &copy; 2025 | Real-time data provided by Binance | SummerBuild Use Only</p>
         </div>
     </div>
 
