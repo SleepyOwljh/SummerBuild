@@ -83,9 +83,21 @@ section.visible {
 }
 
 #objective { background-color: #e74c3c; }
-#etf { background-color: #f39c12; }
-#bond { background-color: #2ecc71; }
-#crypto { background-color: #3498db; }
+#etf {
+    background-image: url('asset/ETF.png');
+    background-size: cover;
+    background-position: center;
+}
+#bond { 
+    background-image: url('asset/Bond.png');
+    background-size: cover;
+    background-position: center;
+}
+#crypto {
+    background-image: url('asset/Crypto.png');
+    background-size: cover;
+    background-position: center;
+}
 #about {
     background-image: url('asset/About us (1).png');
     background-size: cover;
@@ -138,4 +150,17 @@ footer.visible {
 .learn-more:hover {
     background-color: #f0f0f0;
     color: #000;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); 
+  z-index: 0;
+}
+
+section > * {
+  position: relative;
+  z-index: 1;
 }

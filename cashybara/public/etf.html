@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CasHyBara – Student Crypto Dashboard</title>
+  <title>CasHyBara – Student ETF Dashboard</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -25,18 +25,18 @@
     <!-- HEADER -->
     <header class="header">
       <h1>CasHyBara</h1>
-      <p>Smart Crypto Investments Tailored for University Students – Real-time data powered by Binance API</p>
+      <p>Smart ETF Investments Tailored for University Students – Real-time data powered by Yahoo Finance</p>
       <div class="header-controls">
         <button id="refreshBtn" class="refresh-btn">
           <i class="fas fa-sync-alt"></i> Refresh Data
         </button>
         <div class="api-status">
           <div class="status-indicator"></div>
-          <span>Binance API Connected</span>
+          <span>Yahoo Finance API Connected</span>
         </div>
       </div>
       <div class="api-key-info">
-        Using Binance Public API – No API key required | Real-time crypto data
+        Using Yahoo Finance API – No API key required | Real-time ETF data
       </div>
     </header>
 
@@ -56,29 +56,29 @@
           <button class="clear-btn">Clear All</button>
         </div>
         <div class="chart-container">
-          <canvas id="cryptoChart"></canvas>
+          <canvas id="etfChart"></canvas>
         </div>
-        <div id="cryptoInfo" class="etf-info" hidden>
+        <div id="etfInfo" class="etf-info" hidden>
           <h4 id="infoTitle"></h4>
           <table id="infoTable"></table>
         </div>
-        <div id="selectedCryptos" class="selected-etfs">
-          <div class="etf-tag">Select Cryptos to compare</div>
+        <div id="selectedETFs" class="selected-etfs">
+          <div class="etf-tag">Select ETFs to compare</div>
         </div>
       </section>
 
       <!-- SIDEBAR -->
       <aside class="sidebar">
-        <h3>Popular Student Cryptos</h3>
+        <h3>Popular Student ETFs</h3>
         <div class="search-container">
           <i class="fas fa-search search-icon"></i>
-          <input id="searchBox" class="search-box" type="text" placeholder="Search Cryptos…" autocomplete="off" />
+          <input id="searchBox" class="search-box" type="text" placeholder="Search ETFs…" autocomplete="off" />
           <ul id="searchResults" class="search-results" hidden></ul>
         </div>
         <div id="etfGrid" class="etf-grid">
           <div class="loading">
             <div class="loading-spinner"></div>
-            <p>Loading real-time crypto data…</p>
+            <p>Loading real-time ETF data…</p>
           </div>
         </div>
       </aside>
@@ -99,9 +99,9 @@
     <!-- COMPARE STRATEGIES -->
     <section id="compareStrategiesSection" class="chart-section">
       <h2>Compare Strategies</h2>
-      <label for="compareCryptoSelect">Select Crypto:</label>
-      <select id="compareCryptoSelect">
-        <option value="">-- Choose Crypto --</option>
+      <label for="compareETFSelect">Select ETF:</label>
+      <select id="compareETFSelect">
+        <option value="">-- Choose ETF --</option>
       </select>
 
       <label for="compareInvestAmt">How much do you have to invest? <strong><span id="compareInvestDisplay">$25,000</span></strong></label>
@@ -153,10 +153,10 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>CasHyBara Dashboard © 2025 | Real-time data by Binance</p>
+      <p>CasHyBara Dashboard © 2025 | Real-time data by Yahoo Finance</p>
     </footer>
   </div>
 
-  <script src="crypto.js" defer></script>
+  <script src="etf.js" defer></script>
 </body>
 </html>
