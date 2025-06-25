@@ -83,7 +83,11 @@ section.visible {
     z-index: 1;
 }
 
-#objective { background-color: #e74c3c; }
+#objective {
+    background-image: url('asset/objective.jpg');
+    background-size: 90% auto;
+    background-position: center;
+}
 #etf {
     background-image: url('asset/ETF.png');
     background-size: cover;
@@ -168,4 +172,20 @@ footer.visible {
 .text-box p,
 .text-box a {
     color: white;
+}
+
+.quote-box {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.quote-box p {
+    margin: 6px 0;
+    line-height: 1;
+    text-align: center;
 }
